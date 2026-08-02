@@ -1,0 +1,51 @@
+{
+  "_comment": [
+    "Employer registry for scripts/grad_radar.py — SG/HK graduate & early-career radar.",
+    "Each entry maps an employer to its ATS and the tenant identifiers needed to hit that ATS's",
+    "public JSON API. One request per employer returns their whole job board, which is why this",
+    "beats opening career pages one by one.",
+    "",
+    "VERIFIED = the endpoint was actually fetched successfully during research (see reviews/).",
+    "UNVERIFIED = tenant guessed from an email domain or job URL; the script logs a failure and",
+    "moves on, so a wrong guess costs nothing. Fix or delete as you learn.",
+    "",
+    "To add a Workday employer: open their careers site, the URL is",
+    "  https://<host>/<site>/job/...  and host looks like <tenant>.wdN.myworkdayjobs.com",
+    "To add Greenhouse/Lever/Ashby/SmartRecruiters: the token is the slug in their board URL."
+  ],
+
+  "workday": [
+    {"company": "HKEX",                      "host": "hkex.wd3.myworkdayjobs.com",       "tenant": "hkex",       "site": "HKEXCareerPage", "verified": true},
+    {"company": "NTU",                       "host": "ntu.wd3.myworkdayjobs.com",        "tenant": "ntu",        "site": "Careers",        "verified": true},
+    {"company": "Haitong International",     "host": "htisec.wd3.myworkdayjobs.com",     "tenant": "htisec",     "site": "hti_careers",    "verified": true},
+    {"company": "Huatai International",      "host": "htsc.wd102.myworkdayjobs.com",     "tenant": "htsc",       "site": "Huatai_Careers", "verified": true},
+    {"company": "CITIC CLSA",                "host": "citicclsa.wd3.myworkdayjobs.com",  "tenant": "citicclsa",  "site": "External",       "verified": true},
+    {"company": "Micron",                    "host": "micron.wd1.myworkdayjobs.com",     "tenant": "micron",     "site": "External",       "verified": false},
+    {"company": "PwC",                       "host": "pwc.wd3.myworkdayjobs.com",        "tenant": "pwc",        "site": "Global_Experienced_Careers", "verified": false},
+    {"company": "Manulife",                  "host": "manulife.wd3.myworkdayjobs.com",   "tenant": "manulife",   "site": "MFCJH_Careers",  "verified": false},
+    {"company": "Keppel",                    "host": "keppel.wd3.myworkdayjobs.com",     "tenant": "keppel",     "site": "keppelcareers",  "verified": false},
+    {"company": "UOB",                       "host": "uob.wd3.myworkdayjobs.com",        "tenant": "uob",        "site": "UOBCareers",     "verified": false},
+    {"company": "Marina Bay Sands",          "host": "marinabaysands.wd3.myworkdayjobs.com", "tenant": "marinabaysands", "site": "MBS",   "verified": false}
+  ],
+
+  "greenhouse": [
+    {"company": "FGS Global", "token": "fgsglobal", "verified": true}
+  ],
+
+  "lever": [
+    {"company": "ShopBack", "token": "shopback", "verified": false}
+  ],
+
+  "ashby": [],
+
+  "smartrecruiters": [],
+
+  "custom": [
+    {"company": "Guotai Junan International", "type": "gtjai", "verified": true}
+  ],
+
+  "boards": {
+    "mycareersfuture": {"enabled": true, "note": "SG. Legally mandatory for any EP-sponsorable role -> best small-company coverage."},
+    "jobsdb_hk":       {"enabled": true, "note": "HK equivalent. Needs browser-like headers or it 403s."}
+  }
+}
