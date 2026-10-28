@@ -80,8 +80,9 @@ not required**: Apify is only the job *source*; scoring still defaults to the
 free heuristic (add `ANTHROPIC_API_KEY` to upgrade to LLM re-scoring).
 ```bash
 export APIFY_TOKEN=apify_api_...
-export JOBSCREENER_APIFY_ACTOR=misceres~linkedin-jobs-scraper
-python -m jobscreener run --source apify --search "credit risk" --location "Hong Kong"
+export JOBSCREENER_APIFY_ACTOR=johnvc~linkedin-jobs-api
+echo '{"keyword": "credit risk", "location": "Hong Kong", "timeRange": "past-week", "maxJobs": 25}' > li_input.json
+python -m jobscreener run --source apify --apify-input li_input.json
 ```
 
 ### Live jobs via JobSpy (free, no API key)
